@@ -1,0 +1,26 @@
+---
+layout: default
+title: ios performance test sdk
+---
+<style type="text/css">
+	.indent{text-indent: 2em;}
+</style>
+<h1>iOS 性能测试 SDK</h1>
+<a href="{{ site.baseurl }}/index.html">返回</a>
+<h2>一、项目背景</h2>
+	<p class="indent">之前iOS的性能测试（CPU、内存）一直是采用越狱手机获取root权限后用top命令在电脑端查看，考虑到组件测试同学不一定配备越狱手机，有必要找一款性能测试SDK，解决此痛点。</p>
+	<p class="indent">前期调研了公司和业界，发现有一款实现了类似功能的SDK，是腾讯测试团队开发的<a href="http://gt.tencent.com" target="_blank">GT</a>，但是有如下不足：</p>
+	<ol>
+		<li>采集的数据无法收集</li>
+		<li>集成的部分不需要的功能</li>
+		<li>运行结果展示不够美观</li>
+	</ol>
+	<p class="indent">考虑到公司APP的安全问题，所以打算自己开发一款轻量级的性能测试SDK。</p>
+<h2>二、接入方法</h2>
+	<h3>下载SDK</h3>
+	<p>解压后如下图：包含头文件、libMobileTotoroSDK.a静态包、资源文件</p>
+	<img src="http://7xrm86.com1.z0.glb.clouddn.com/imagebed%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png">
+	<h3>将SDK拖到项目中</h3>
+	<img src="http://7xrm86.com1.z0.glb.clouddn.com/imagebed%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95.png">
+	<h3>在要启用SDK的地方插入如下代码</h3>
+<h2>三、使用方法</h2>
