@@ -3,6 +3,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>ios performance test sdk</title>
+
+	<!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/pygments.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/mainpage.css">
 </head>
 <body>
 	<style type="text/css">
@@ -20,12 +25,41 @@
 	</ol>
 	<p class="indent">考虑到公司APP的安全问题，所以打算自己开发一款轻量级的性能测试SDK。</p>
 <h2>二、接入方法</h2>
+	
 	<h3>下载SDK</h3>
-	<p>解压后如下图：包含头文件、libMobileTotoroSDK.a静态包、资源文件</p>
+	<p class="indent">解压后如下图：包含头文件、libMobileTotoroSDK.a静态包、资源文件</p>
 	<img src="http://7xrm86.com1.z0.glb.clouddn.com/imagebed%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png">
+	
 	<h3>将SDK拖到项目中</h3>
 	<img src="http://7xrm86.com1.z0.glb.clouddn.com/imagebed%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95.png">
+	
 	<h3>在要启用SDK的地方插入如下代码</h3>
+	<p>AppDelegate.h</p>
+	<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#import &quot;MTLogoView.h&quot;</span>
+<span class="cp">#import &quot;MTTableViewController.h&quot;</span>
+<span class="cp">#import &quot;MTPerformanceManager.h&quot;</span>
+	</code></pre></figure>
+	<p>AppDelegate.m</p>
+	<figure class="highlight"><pre><code class="language-c" data-lang="c"> 
+<span class="o">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nl">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nl">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">launchOptions</span> <span class="p">{</span>
+    <span class="c1">// 其他代码</span>
+    <span class="c1">// Add MT</span>
+    <span class="n">CGRect</span> <span class="n">screenBounds</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="n">mainScreen</span><span class="p">].</span><span class="n">bounds</span><span class="p">;</span>
+    <span class="n">MTLogoView</span> <span class="o">*</span><span class="n">logo</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MTLogoView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">screenBounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span>
+                                                                    <span class="mf">0.5</span><span class="o">*</span><span class="n">screenBounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">,</span>
+                                                                    <span class="mf">0.15</span><span class="o">*</span><span class="n">screenBounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span>
+                                                                    <span class="mf">0.15</span><span class="o">*</span><span class="n">screenBounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">)];</span>
+    <span class="n">__block</span> <span class="n">MTLogoView</span> <span class="o">*</span><span class="n">weakLogo</span> <span class="o">=</span> <span class="n">logo</span><span class="p">;</span>
+    <span class="n">logo</span><span class="p">.</span><span class="n">doubleTapBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">MTTableViewController</span> <span class="o">*</span><span class="n">MTTableVC</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MTTableViewController</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+        <span class="n">UINavigationController</span> <span class="o">*</span><span class="n">MTNavVC</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UINavigationController</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithRootViewController</span><span class="p">:</span><span class="n">MTTableVC</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">rootViewController</span> <span class="nl">presentViewController</span><span class="p">:</span><span class="n">MTNavVC</span> <span class="nl">animated</span><span class="p">:</span><span class="n">YES</span> <span class="nl">completion</span><span class="p">:</span><span class="n">nil</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">weakLogo</span> <span class="nl">setHidden</span><span class="p">:</span><span class="n">YES</span><span class="p">];</span>
+    <span class="p">};</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">window</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">logo</span><span class="p">];</span>
+    <span class="p">[[</span><span class="n">MTPerformanceManager</span> <span class="n">sharedInstance</span><span class="p">]</span> <span class="n">start</span><span class="p">];</span>
+<span class="p">}</span>
+	</code></pre></figure>
 <h2>三、使用方法</h2>
 </body>
 </html>
