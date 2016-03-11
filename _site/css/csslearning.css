@@ -1,1 +1,64 @@
-strong {color: red}
+body {
+	font: 16px "Comic Sans MS", cursive;
+	background: url(Blue-rule.png);
+	counter-reset: hnum;
+}
+strong {
+	color: #f00;
+	font: 2em serif;
+	background-color: #ddf;
+}
+.carrot {
+	/*color: orange;*/
+}
+.spinach {
+	color: rgb(0, 128, 0);
+}
+#first {
+	font-style: italic;
+}
+p {
+	color: #00f;
+}
+
+h3:before {
+	content: "(" counter(hnum, upper-latin) ")";
+	counter-increment: hnum;
+}
+
+/* numbered paragraphs */
+h3.numbered {
+	counter-reset: mynum;
+}
+
+p.numbered:before {
+  content: counter(mynum) ": ";
+  counter-increment: mynum;
+  font-weight: bold;
+}
+
+ul {
+	list-style: lower-roman;
+}
+
+p.indent {
+	text-indent: 2em;
+	text-transform: capitalize;
+	text-decoration: line-through;
+	text-align: center;
+	word-spacing: 20px;
+}
+
+div {
+	white-space: pre-line;
+}
+
+@font-face {
+	font-family: KangXi;
+	src: url('KangXi.ttf');
+}
+
+p.kangxi {
+	font-family: 'KangXi';
+	font-size: 40px;
+}
