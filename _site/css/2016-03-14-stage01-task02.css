@@ -1,0 +1,14 @@
+body {
+	font-family: 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+}
+img {
+	width: 320px;
+}
+div {
+	margin-left: 2em;
+}
+textarea {
+	font-size: 110%;
+	margin: 0;
+	vertical-align: text-bottom;
+}
