@@ -1,0 +1,87 @@
+body {
+	font-family: 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
+	margin: 0;
+}
+
+/*外框*/
+#outline {
+	/*height: 1000px;*/
+	margin: 20px;
+	border: solid 1px #999;
+	background-color: #eee;
+	overflow: auto;
+	padding: 20px;
+}
+
+/*三栏布局*/
+#left,
+#right,
+#main{
+	background: white;
+}
+
+#left {
+	width: 200px;
+	float: left;
+}
+
+#right {
+	width: 120px;
+	float: right;
+}
+
+#main {
+	margin-left: 240px;
+	margin-right: 140px;
+}
+
+#teamtitle,
+#introduction,
+#teammates{
+	margin: 0;
+	padding: 20px;
+	border: solid 1px #999;
+	background-color: white;
+	float: left;
+}
+
+/*right*/
+#teamtitle {
+	width: 200px;
+}
+
+#teamlogo {
+	float: left;
+}
+
+#teamname {
+	float: left;
+	margin-left: 30px;
+}
+
+/*main*/
+#introduction {
+	margin-left: 20px;
+}
+
+/*right*/
+#teammates {
+	margin-right: 60px;
+}
+
+img {
+	width: 80px;
+	height: 80px;
+}
+
+.mateimg {
+	margin-bottom: 20px;
+}
+#lastmate {
+	margin-bottom: 0;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 16px;
+}

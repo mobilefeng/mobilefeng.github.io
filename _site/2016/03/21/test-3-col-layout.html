@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test 3 col layout</title>
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		/*style 1 绝对定位
+			缺点是浏览器变窄时，左右栏会重叠
+		#left, #right {
+			position: absolute;
+			top: 0;
+			width: 220px;
+			height: 100%;
+		}
+		#left {
+			left: 0;
+			background-color: red;
+		}
+		#right {
+			right: 0;
+			background-color: blue;
+		}
+		#main {
+			margin: 0 230px;
+			height: 100%;
+			background-color: green;
+		}*/
+		
+		/*style 2 浮动布局*/
+		#left, #right {
+			width: 220px;
+			height: 200px;
+			background: blue;
+		}
+		#left {
+			float: left;
+		}
+		#right {
+			float: right;
+		}
+		#main {
+			margin: 0 230px;
+			background: red;
+			height: 200px;
+		}
+		
+		/*style 3 负margin*/
+		/*#main {
+			float: left;
+			width: 100%;
+		}
+		#mainContainer {
+			margin: 0 230px;
+			height: 200px;
+			background: green;
+		}
+		#left {
+			float: left;
+			margin-left: -100%;
+			width: 230px;
+		}
+		#right {
+			float: left;
+			margin-left: -230px;
+			width: 230px;
+		}
+		#left .inner,
+		#right .inner {
+			background: orange;
+			margin:0 10px;
+			height: 200px;
+		}*/
+		div {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+<div id="left">
+	<div id="leftContainer" class="inner">left context</div>
+</div>
+<div id="right">
+	<div id="rightContainer" class="inner">right context</div>
+</div>
+<div id="main">
+	<div id="mainContainer">main context</div>
+</div>
+
+<div>
+	father
+	<p id="child">child</div>
+</div>
+
+</body>
+</html>
