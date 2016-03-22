@@ -1,0 +1,40 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+#box {
+	padding: 0;
+	background: #ccc;
+	width: 400px;
+	height: 200px;
+	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	
+	margin: -100px 0 0 -200px;
+}
+
+#lefttop {
+	width: 50px;
+	height: 0px;
+	border: 0 solid transparent;
+	border-bottom: 50px solid #fc0;
+	-moz-border-radius: 0 0 50px 0;
+	-webkit-border-radius: 0 0 50px 0;
+	border-radius: 0 0 50px 0;
+}
+
+#rightbottom {
+	width: 50px;
+	height: 0px;
+	border: 0 solid transparent;
+	border-top: 50px solid #fc0;
+	-moz-border-radius: 0 50px 50px 0;
+	-webkit-border-radius: 0 50px 50px 0;
+	border-radius: 50px 0 0 0;
+	position: relative;
+	top: 100px;
+	left: 350px;
+}

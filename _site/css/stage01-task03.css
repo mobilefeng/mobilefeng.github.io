@@ -5,12 +5,12 @@ body {
 
 /*外框*/
 #outline {
-	/*height: 1000px;*/
 	margin: 20px;
+	padding: 20px;
 	border: solid 1px #999;
 	background-color: #eee;
 	overflow: auto;
-	padding: 20px;
+	position: absolute;
 }
 
 /*三栏布局*/
