@@ -22,9 +22,11 @@ function showResult() {
   */
   var inputElement = document.getElementById('aqi-input');
   var inputMessage = inputElement.value;
-  if (inputMessage != null) {
+  if (inputMessage != null && inputMessage != '') {
     var displayTxt = document.getElementById('aqi-display');
     displayTxt.innerHTML = inputMessage;
+  } else {
+    alert("请输入天气值哦～");
   }
 };
 
